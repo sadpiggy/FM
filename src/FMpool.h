@@ -100,7 +100,7 @@ class FMpool{// objId,key索引
         while(!sockClose){
             recv(ClientSock,&ctlMsg,CtlMsgSize,0);
             ctl = ctlMsg-ctlMsg/10*10;
-            #ifdef Debug2
+            #ifdef Debug3
             printf("ctl is %d\n",ctl);
             #endif
 
@@ -115,7 +115,7 @@ class FMpool{// objId,key索引
                 send(ClientSock,&objId,ObjIdSize,0);
                 //recv value
                 recv(ClientSock,value,valueSize,0);
-                #ifdef Debug2
+                #ifdef Debug3
                 printf("value is %d\n",*(int *)value);
                 #endif
 
@@ -129,7 +129,7 @@ class FMpool{// objId,key索引
                 //send value
                 send(ClientSock,value,valueSize,0);
 
-                #ifdef Debug
+                #ifdef Debug3
                 printf("value is %d\n",*(int *)value);
                 printf("valuesize is %d\n",valueSize);
                 #endif
@@ -161,7 +161,13 @@ class FMpool{// objId,key索引
 
     }
 
-    
+    int getIdTag(){
+        return this->idTag;
+    }
+
+    int getObjsNum(){
+        return this->objs.size();
+    }
 
 };
 

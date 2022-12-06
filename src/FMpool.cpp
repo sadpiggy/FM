@@ -11,6 +11,10 @@ int main(int argc,const char* argv[]){
 
     fmPool.run(serverIp,serverPort);
 
+    printf("fmPool id==%d\n",fmPool.getIdTag());
+
+     printf("fmPool size==%d\n",fmPool.getObjsNum());
+
     printf("fmPool will be closed\n");
 
     fmPool.clean();
