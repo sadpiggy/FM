@@ -12,6 +12,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #define Debug
+#define Debug2
 // #define ACK  1
 // #define NAK  0
 #define CtlSend 0

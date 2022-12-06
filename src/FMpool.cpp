@@ -5,6 +5,7 @@
 int main(int argc,const char* argv[]){
     const char* serverIp = argv[1];
     int serverPort = atoi(argv[2]);
+    printf("-----------This is server------------\n");
 
     FMpool fmPool;
 

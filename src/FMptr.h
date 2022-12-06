@@ -75,7 +75,7 @@ public:
             return;
         }
 #endif
-        this->value = malloc(this->valueSize);
+        this->value = (T*)malloc(this->valueSize);
         getObj(this->value, this->valueSize, this->farId, this->farMem);
         this->isFar = false;
     }; //放入本地

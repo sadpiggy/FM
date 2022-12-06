@@ -31,7 +31,7 @@ void getObj(void* value,unsigned long valueSize,unsigned int objId,int farMem){/
     ctlMsg = objId*10+CtlGet;
     send(farMem,&ctlMsg,CtlMsgSize,0);
     // send(farMem,&objId,sizeof(int),0);
-    recv(farMem,&value,valueSize,0);
+    recv(farMem,value,valueSize,0);
 
 }
 

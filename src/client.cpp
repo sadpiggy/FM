@@ -11,4 +11,10 @@ int main(int argc,const char* argv[]){
     FMptr<int> ptr(new int,sock);
     *ptr = 10;
     printf("%d\n",*ptr);
+    ptr.offload();
+    printf("%d\n",*ptr);
+    ptr.inload();
+    printf("%d\n",*ptr);
+
+    closeFM(sock);
 }

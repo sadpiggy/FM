@@ -24,7 +24,7 @@ class FMpool{// objId,key索引
         //创建serverSock 并连接
        
 #ifdef Debug
-        printf("FMPool has been created!");
+        printf("FMPool has been created!\n");
 #endif   
     }
 
@@ -100,6 +100,10 @@ class FMpool{// objId,key索引
         while(!sockClose){
             recv(ClientSock,&ctlMsg,CtlMsgSize,0);
             ctl = ctlMsg-ctlMsg/10*10;
+            #ifdef Debug2
+            printf("ctl is %d\n",ctl);
+            #endif
+
             switch (ctl)
             {
             case CtlSend:
@@ -111,6 +115,10 @@ class FMpool{// objId,key索引
                 send(ClientSock,&objId,ObjIdSize,0);
                 //recv value
                 recv(ClientSock,value,valueSize,0);
+                #ifdef Debug2
+                printf("value is %d\n",*(int *)value);
+                #endif
+
 
                 break;
             case CtlGet:
@@ -120,6 +128,12 @@ class FMpool{// objId,key索引
                 valueSize = value_and_size.second;
                 //send value
                 send(ClientSock,value,valueSize,0);
+
+                #ifdef Debug
+                printf("value is %d\n",*(int *)value);
+                printf("valuesize is %d\n",valueSize);
+                #endif
+
                 free(value);
                 this->objs.erase(objId);
 
